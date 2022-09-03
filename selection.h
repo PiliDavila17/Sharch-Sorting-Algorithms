@@ -4,7 +4,7 @@
 // Author: Pedro Perez
 // Description: This file contains the implementation of the
 //				bubble sort.
-//
+// se modifico el codigo por Pilar Davila
 // Copyright (c) 2020 by Tecnologico de Monterrey.
 // All Rights Reserved. May be reproduced for any non-commercial
 // purpose.
@@ -22,21 +22,24 @@
 // @param size, the number of elements in the array.
 // =================================================================
 template <class T>
-void selectionSort(T *arr, int size) {
+int selectionSort(T *arr, int size) {
 	int pos;
+	int count=0;
 
 	for(int i = size - 1; i > 0; i--){
-		pos = 0;
 		for(int j = 1; j <= i; j++){
+			pos =0;
 			if(arr[j] > arr[pos]){
 				pos = j;
 			}
 		}
 
 		if (pos != i){
+			count++;
 			swap(arr, i, pos);
 		}
 	}
+	return count;
 }
 
 // =================================================================
@@ -45,8 +48,9 @@ void selectionSort(T *arr, int size) {
 // @param A, a vector of T elements.
 // =================================================================
 template <class T>
-void selectionSort(std::vector<T> &v) {
+int selectionSort(std::vector<T> &v) {
 	int pos;
+	int count=0;
 
 	for(int i = v.size() - 1; i > 0; i--){
 		pos = 0;
@@ -57,9 +61,11 @@ void selectionSort(std::vector<T> &v) {
 		}
 
 		if (pos != i){
+			count++;
 			swap(v, i, pos);
 		}
 	}
+return count;
 }
 
 #endif /* SELECTION_H */
